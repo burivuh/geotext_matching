@@ -1,0 +1,7 @@
+osmium
+numpy
+pandas
+geopandas
+scipy
+shapely
+django
