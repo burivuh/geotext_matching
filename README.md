@@ -16,7 +16,7 @@ The thing uses sqlite.
 
 ## Main page
 
-```/index``` is the main page. It shows you a map (google or leaflet) with
+```/index``` is the main page. It shows you the map (google or leaflet) with
 rendered objects: an OSM object and objects nearest by geo coordinates.
 
 The viewport is zoomed to a group of rendered OSM object and one nearest object.
