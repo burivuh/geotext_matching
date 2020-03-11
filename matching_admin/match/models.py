@@ -2,11 +2,19 @@ from django.db import models
 
 
 class Iteration(models.Model):
+    """
+    A table for iterations of markup. Used to logically separate marked objects.
+    """
     create_dt = models.DateTimeField(auto_now_add=True)
     meta = models.TextField()
 
 
 class MarkedObjects(models.Model):
+    """
+    A table of marked object pairs.
+    Obj_X stands for object (OSM POI) matching to a given group of objects on the map.
+    Other_X stands for a group member (Booking hotel) compared to the given object.
+    """
     obj_id = models.IntegerField()
     obj_type = models.CharField(max_length=10)
     obj_lat = models.FloatField()
