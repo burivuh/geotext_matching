@@ -54,3 +54,42 @@ page.
 
 Mark could be 0, 1 or 2. 2 is a reserved value for result to be merged.
 0 stands for mismatch, 1 - for match.
+
+# Objects match classifier
+
+## geomatched_dataset
+
+A script to perform geo match of objects of given dataset
+and OSM objects (a filtered planet or region).
+
+Outputs 5 nearest neighbours of an OSM object in one row.
+
+```
+python3 geomatched_dataset.py
+```
+
+File names and columns are hardcoded in script.
+
+## objects match classifier
+
+objects_matching.py is a script that learns a classifier using given
+train dataset, then gets dataset to be classified, outputs the accuracy score
+and serializes classifier to ./classifier.pkl
+
+To serialize use "-serialize" and pass the train dataset filepath:
+```
+python3 ./objects_matching.py -serialize ../Downloads/dataset\(1\).csv
+```
+
+To match using previously pickled classifier pass path to geomatched objects
+dataset (generated with geomatched_dataset.py).
+
+```
+python3 ./objects_matching.py ../hotels_geomatched.csv
+```
+It makes given data flat, then classifies and outputs matched result.
+An OSM object can only be matched to one booking hotel, on the other hand
+one booking hotel can be matched to multiple OSM objects.
+
+## tests
+accuracy_test shows the dummy classifier accuracy and given classifier accuracy.
